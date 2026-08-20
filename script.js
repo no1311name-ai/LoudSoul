@@ -1,18 +1,39 @@
 const products = [
-    { id: 1, name: "LS Classic Rock Tee", price: 399, imgText: "Graphic 1 (Gray/Black)" },
-    { id: 2, name: "LS Vintage Heavy Tee", price: 399, imgText: "Graphic 2 (Gray/Black)" },
-    { id: 3, name: "LS Dark Soul Tee", price: 399, imgText: "Graphic 3 (Gray/Black)" },
-    { id: 4, name: "LS American Heritage Tee", price: 399, imgText: "Graphic 4 (Gray/Black)" }
+    { 
+        id: 1, 
+        name: "LOUD SOUL Hell's Fury Tee", 
+        price: 399, 
+        img: "shirt1.jpg.jpg" 
+    },
+    { 
+        id: 2, 
+        name: "LOUD SOUL Vintage Dark Heavy Tee", 
+        price: 399, 
+        img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&auto=format&fit=crop&q=80" 
+    },
+    { 
+        id: 3, 
+        name: "LOUD SOUL Street Premium Tee", 
+        price: 399, 
+        img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&auto=format&fit=crop&q=80" 
+    },
+    { 
+        id: 4, 
+        name: "LOUD SOUL Dark Soul Heritage Tee", 
+        price: 399, 
+        img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80" 
+    }
 ];
 
 let cart = [];
 
-// โหลดแสดงสินค้าหน้าแรก
 document.addEventListener("DOMContentLoaded", () => {
     const productList = document.getElementById("product-list");
     productList.innerHTML = products.map(p => `
         <div class="product-card">
-            <div class="product-img">[ รูปเสื้อ: ${p.imgText} ]</div>
+            <div class="product-img-box">
+                <img src="${p.img}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover;">
+            </div>
             <div class="product-info">
                 <h3>${p.name}</h3>
                 <div class="price">${p.price} บาท</div>
@@ -46,7 +67,7 @@ function addToCart(productId) {
     }
     
     updateCartCount();
-    alert("เพิ่มสินค้าลงตะกร้าแล้ว!");
+    alert("เพิ่มสินค้าลงตะกร้าเรียบร้อย!");
 }
 
 function updateCartCount() {
@@ -57,7 +78,7 @@ function updateCartCount() {
 function updateCartUI() {
     const cartItemsContainer = document.getElementById("cart-items");
     if (cart.length === 0) {
-        cartItemsContainer.innerHTML = "<p style='text-align:center; color:#888;'>ไม่มีสินค้าในตะกร้า</p>";
+        cartItemsContainer.innerHTML = "<p style='text-align:center; color:#777; padding:20px;'>ยังไม่มีสินค้าในตะกร้า</p>";
         document.getElementById("shipping-fee").innerText = "40";
         document.getElementById("grand-total").innerText = "0";
         return;
@@ -66,13 +87,13 @@ function updateCartUI() {
     cartItemsContainer.innerHTML = cart.map((item, index) => `
         <div class="cart-item">
             <div>
-                <strong>${item.name}</strong> (${item.size})<br>
-                ${item.price} ฿ x ${item.qty}
+                <strong>${item.name}</strong><br>
+                <span>ไซซ์: ${item.size} | ราคา: ${item.price} ฿</span>
             </div>
-            <div>
-                <button onclick="changeQty(${index}, -1)">-</button>
-                <span style="margin: 0 8px;">${item.qty}</span>
-                <button onclick="changeQty(${index}, 1)">+</button>
+            <div style="display:flex; align-items:center; gap:6px;">
+                <button onclick="changeQty(${index}, -1)" style="padding:2px 8px; background:#333; color:#fff; border:none; border-radius:3px;">-</button>
+                <span>${item.qty}</span>
+                <button onclick="changeQty(${index}, 1)" style="padding:2px 8px; background:#333; color:#fff; border:none; border-radius:3px;">+</button>
             </div>
         </div>
     `).join('');
@@ -100,7 +121,7 @@ function calculateTotal() {
 
 function openCheckout() {
     if (cart.length === 0) {
-        alert("กรุณาเลือกสินค้าอย่างน้อย 1 ชิ้น");
+        alert("กรุณาเลือกสินค้าอย่างน้อย 1 ชิ้นครับ");
         return;
     }
     document.getElementById("cart-modal").style.display = "none";
@@ -135,9 +156,8 @@ function submitOrder(event) {
     summaryText += `ขนส่ง: ${shippingPartner}\n\n`;
     summaryText += `💳 โอนแล้วผ่าน KBank (1298712217 เนตรชนก)`;
 
-    // คัดลอกข้อความสรุปคำสั่งซื้อลงคลิปบอร์ดอัตโนมัติ
     navigator.clipboard.writeText(summaryText).then(() => {
-        alert("คัดลอกรายละเอียดคำสั่งซื้อสำเร็จ! กรุณานำส่งสลิปและข้อความนี้ให้ร้านค้าทาง Instagram / LINE ได้เลยครับ");
+        alert("คัดลอกรายละเอียดคำสั่งซื้อสำเร็จ! กรุณานำข้อความนี้และสลิปส่งให้ร้านทาง IG (@amnatx_13) หรือ LINE (nate1311) ได้เลยครับ");
         location.reload();
     }).catch(err => {
         alert("สั่งซื้อสำเร็จ! กรุณาแคปหน้าจอสรุปยอดแจ้งร้านค้า");
