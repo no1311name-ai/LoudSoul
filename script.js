@@ -3,19 +3,19 @@ const products = [
         id: 1, 
         name: "LOUD SOUL American Rock Tee", 
         price: 399, 
-        img: "shirt4.jpg" 
+        img: "https://shirt4.jpg" 
     },
     { 
         id: 2, 
         name: "LOUD SOUL Vintage Dark Heavy Tee", 
         price: 399, 
-        img: "shirt2.jpg" 
+        img: "https://shirt2.jpg" 
     },
     { 
         id: 3, 
         name: "LOUD SOUL Street Premium Tee", 
         price: 399, 
-        img: "shirt3.jpg" 
+        img: "https://shirt3.jpg" 
     },
     { 
         id: 4, 
