@@ -1,9 +1,9 @@
 const products = [
     { 
         id: 1, 
-        name: "LOUD SOUL Hell's Fury Tee", 
+        name: "LOUD SOUL American Rock Tee", 
         price: 399, 
-        img: "shirt1.jpg.jpg" 
+        img: "https://i.ibb.co/wrShLmyv/shirt1.jpg" 
     },
     { 
         id: 2, 
@@ -19,7 +19,7 @@ const products = [
     },
     { 
         id: 4, 
-        name: "LOUD SOUL Dark Soul Heritage Tee", 
+        name: "LOUD SOUL Dark Heritage Tee", 
         price: 399, 
         img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80" 
     }
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     productList.innerHTML = products.map(p => `
         <div class="product-card">
             <div class="product-img-box">
-                <img src="${p.img}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover;">
+                <img src="${p.img}" alt="${p.name}">
             </div>
             <div class="product-info">
                 <h3>${p.name}</h3>
@@ -154,7 +154,7 @@ function submitOrder(event) {
     summaryText += `เบอร์โทร: ${phone}\n`;
     summaryText += `ที่อยู่: ${address}\n`;
     summaryText += `ขนส่ง: ${shippingPartner}\n\n`;
-    summaryText += `💳 โอนแล้วผ่าน KBank (1298712217 เนตรชนก)`;
+    summaryText += `💳 โอนเงินแล้ว: กสิกรไทย 1298712217 (เนตรชนก แข็งธัญกิจ)`;
 
     navigator.clipboard.writeText(summaryText).then(() => {
         alert("คัดลอกรายละเอียดคำสั่งซื้อสำเร็จ! กรุณานำข้อความนี้และสลิปส่งให้ร้านทาง IG (@amnatx_13) หรือ LINE (nate1311) ได้เลยครับ");
