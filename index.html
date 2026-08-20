@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LOUD SOUL — American Rockwear</title>
+  <meta name="description" content="LOUD SOUL — เสื้อสไตล์ร็อคอเมริกัน เท่ แปลกใหม่ และดูพรีเมียม">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#home">LOUD<span>SOUL</span></a>
+  <button class="menu" id="menuBtn" aria-label="เปิดเมนู">☰</button>
+  <nav id="navLinks">
+    <a href="#home">HOME</a>
+    <a href="#shop">SHOP</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+    <button class="cartBtn" onclick="openCart()">CART <b id="cartCount">0</b></button>
+  </nav>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="heroCopy">
+      <p class="eyebrow">AMERICAN ROCKWEAR / 2026</p>
+      <h1>MAKE<br><span>NOISE.</span></h1>
+      <p class="heroText">เสื้อร็อคอเมริกันสำหรับคนที่ไม่อยากเหมือนใคร — โทนเทาตัดดำ ดีไซน์ดิบแต่ดูแพง</p>
+      <a class="btn" href="#shop">SHOP NOW ↗</a>
+    </div>
+    <div class="heroArt">
+      <div class="shirtGraphic">
+        <div class="shirtBack">LOUD<br><small>SOUL</small></div>
+      </div>
+      <div class="stamp">LS<br>01</div>
+    </div>
+  </section>
+
+  <section class="ticker"><div>LOUD SOUL • BE YOUR OWN VOICE • AMERICAN ROCK • LOUD SOUL • BE YOUR OWN VOICE •</div></section>
+
+  <section id="shop" class="section">
+    <div class="sectionHead">
+      <div><p class="eyebrow">01 / THE DROP</p><h2>NEW<br>ARRIVALS</h2></div>
+      <p>Grey × Black / Premium Street Rock</p>
+    </div>
+    <div class="products" id="products"></div>
+  </section>
+
+  <section id="about" class="about section">
+    <div><p class="eyebrow">02 / ABOUT</p><h2>LOUD SOUL<br>HAS A VOICE.</h2></div>
+    <div class="aboutText">
+      <p>LOUD SOUL คือแบรนด์เสื้อผ้าสไตล์ร็อคอเมริกันที่หยิบความดิบ ความเท่ และความรู้สึกแบบ underground มาตีความใหม่ให้ดูสะอาดและพรีเมียมขึ้น</p>
+      <p>เราเชื่อว่าเสื้อผ้าไม่จำเป็นต้องตะโกนดังเพื่อให้คนมองเห็น — แค่มีตัวตนที่ชัด ก็พอ</p>
+      <div class="specs"><span>UNISEX</span><span>S–XL</span><span>฿399</span><span>GREY / BLACK</span></div>
+    </div>
+  </section>
+
+  <section class="shipping section">
+    <div><p class="eyebrow">03 / SERVICE</p><h2>BUILT TO<br>ARRIVE.</h2></div>
+    <div class="serviceGrid">
+      <div><b>฿40</b><span>ค่าจัดส่ง</span></div>
+      <div><b>฿500+</b><span>ส่งฟรี</span></div>
+      <div><b>3</b><span>ขนส่ง: Flash / J&T / ไปรษณีย์ไทย</span></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact section">
+    <div>
+      <p class="eyebrow">04 / CONTACT</p>
+      <h2>LET'S<br>CONNECT.</h2>
+    </div>
+    <div class="contactList">
+      <a href="https://instagram.com/amnatx_13" target="_blank">INSTAGRAM <span>@amnatx_13 ↗</span></a>
+      <a href="https://www.facebook.com/" target="_blank">FACEBOOK <span>Nätchanok nk ↗</span></a>
+      <a href="https://line.me/" target="_blank">LINE <span>nate1311 ↗</span></a>
+      <a href="tel:0957946908">PHONE <span>095-794-6908 ↗</span></a>
+    </div>
+  </section>
+</main>
+
+<footer><span>LOUD SOUL © 2026</span><span>BE YOUR OWN VOICE.</span></footer>
+
+<div class="modal" id="cartModal">
+  <div class="cart">
+    <button class="close" onclick="closeCart()">×</button>
+    <p class="eyebrow">YOUR CART</p>
+    <h2>ORDER</h2>
+    <div id="cartItems"></div>
+    <div class="total"><span>TOTAL</span><strong id="total">฿0</strong></div>
+    <button class="btn full" onclick="openCheckout()">CHECKOUT ↗</button>
+  </div>
+</div>
+
+<div class="modal" id="checkoutModal">
+  <div class="cart checkout">
+    <button class="close" onclick="closeCheckout()">×</button>
+    <p class="eyebrow">CHECKOUT</p>
+    <h2>YOUR INFO</h2>
+    <form id="checkoutForm">
+      <label>ชื่อ-นามสกุล<input required name="name" placeholder="ชื่อของคุณ"></label>
+      <label>เบอร์โทร<input required name="phone" type="tel" placeholder="08x-xxx-xxxx"></label>
+      <label>ที่อยู่จัดส่ง<textarea required name="address" rows="3" placeholder="บ้านเลขที่ / ถนน / ตำบล / อำเภอ / จังหวัด / รหัสไปรษณีย์"></textarea></label>
+      <label>สี / ไซซ์ / จำนวน<input required name="order" id="orderSummary"></label>
+      <button class="btn full" type="submit">ส่งข้อมูลออเดอร์</button>
+    </form>
+    <p class="note">หลังส่งออเดอร์ ระบบจะเปิดข้อความ LINE เพื่อให้ยืนยันคำสั่งซื้อและการชำระเงินกับร้าน</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
