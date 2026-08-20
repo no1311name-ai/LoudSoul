@@ -21,7 +21,7 @@ const products = [
         id: 4, 
         name: "LOUD SOUL Dark Heritage Tee", 
         price: 399, 
-        img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80" 
+        img: "https://shirt1.jpg⁠" 
     }
 ];
 
